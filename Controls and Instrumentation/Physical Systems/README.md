@@ -7,6 +7,8 @@ This folder contains two Arduino control systems:
 
 Use [WIRING.md](WIRING.md) to build either system.
 
+The DRV8833 motor drivers are powered by a 9 V battery connected to the motor-driver power rails on the breadboard. See [Motor-driver power](WIRING.md#motor-driver-power) for the connection steps.
+
 ## Dye concentration
 
 Three pumps add dyed water, add clear water and remove waste water. A SEN0101 colour sensor measures the mixture in the control tank.
@@ -66,6 +68,8 @@ Recalibrate when results change unexpectedly.
 ## Plate temperature
 
 The silicone pad heats the aluminium plate. The coolant tube cools it. The DS18B20 measures the plate temperature.
+
+The default setpoint is 35 °C. It can be changed up to 45 °C. The heater shuts off at 55 °C.
 
 Sketches:
 

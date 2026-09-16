@@ -30,7 +30,9 @@ const bool RELAY_ACTIVE_LOW = false;
 const uint8_t RELAY_ON_LEVEL  = RELAY_ACTIVE_LOW ? LOW : HIGH;
 const uint8_t RELAY_OFF_LEVEL = RELAY_ACTIVE_LOW ? HIGH : LOW;
 // ---------------- Temperature settings ----------------
-const float SETPOINT_C   = 35.0;
+constexpr float SETPOINT_C     = 35.0;
+constexpr float MAX_SETPOINT_C = 45.0;
+static_assert(SETPOINT_C <= MAX_SETPOINT_C, "SETPOINT_C must be 45 C or lower");
 const float HYSTERESIS_C = 0.5;
 const float HEATER_ON_C  = SETPOINT_C - HYSTERESIS_C; // 34.5
 const float HEATER_OFF_C = SETPOINT_C + HYSTERESIS_C; // 35.5

@@ -56,7 +56,8 @@ const int PUMP_IN2_PIN     = 11; // DRV8833 IN2, held LOW in software (fixed dir
 const bool RELAY_ACTIVE_LOW = false;
 
 // ---------------- Setpoint ----------------
-double targetTempC = 35.0; // requested setpoint
+double targetTempC = 35.0; // adjustable setpoint
+const double MAX_SETPOINT_C = 45.0;
 
 // ---------------- Safety limits ----------------
 // Backstop sits well above the setpoint so ordinary tuning overshoot does not
@@ -192,6 +193,11 @@ void failSafe(const char *reason) {
 }
 
 void loop() {
+  // Keep participant-set targets below the apparatus limit.
+  if (targetTempC > MAX_SETPOINT_C) {
+    targetTempC = MAX_SETPOINT_C;
+  }
+
   unsigned long now = millis();
 
   // ---- collect a finished conversion, then immediately start the next ----
