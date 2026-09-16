@@ -1,4 +1,4 @@
-// 40 C temperature controller
+// 35 C temperature controller
 //
 // Sensor:       DS18B20 data -> Arduino D4 (4.7 kOhm pull-up to 5 V)
 // Heater relay: DFRobot DFR0473 signal -> Arduino D2
@@ -21,7 +21,7 @@ const uint8_t RELAY_ON_LEVEL  = RELAY_ACTIVE_LOW ? LOW : HIGH;
 const uint8_t RELAY_OFF_LEVEL = RELAY_ACTIVE_LOW ? HIGH : LOW;
 
 // ---------------- Temperature settings ----------------
-const float SETPOINT_C        = 40.0;
+const float SETPOINT_C        = 35.0;
 const float HYSTERESIS_C      = 0.5;
 const float HEATER_ON_C       = SETPOINT_C - HYSTERESIS_C;
 const float HEATER_OFF_C      = SETPOINT_C + HYSTERESIS_C;
