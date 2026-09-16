@@ -38,3 +38,6 @@ dist/
 # Playwright/browser test artifacts
 test-results/
 playwright-report/
+
+#backup
+reactor_control/reactor_control_aahan
