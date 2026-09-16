@@ -2,8 +2,15 @@
 
 This is the simulated reactor option for the [Controls and Instrumentation challenge](../README.md). It includes a reactor model, controller, noisy sensors, EKF state estimator, safety logic and fault scenarios.
 
+## Architecture
+
+![Closed-loop architecture: power setpoint, PID rod controller, safety supervisor, rod drive, reactor plant, instrumentation and Extended Kalman Filter](assets/smr_control_architecture.png)
+
+The forward path runs setpoint to controller to rod drive to plant; the feedback path returns through the instrumentation and the estimator. The supervisor reads **raw sensor values** rather than filtered estimates, so an estimator failure cannot mask an unsafe condition.
+
 ## Table of Contents
 
+- [Architecture](#architecture)
 - [Setup](#setup)
 - [Project files](#project-files)
 - [Run a scenario](#run-a-scenario)
